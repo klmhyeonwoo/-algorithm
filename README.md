@@ -6,11 +6,11 @@
 - [ ] 승용
 - [ ] 영규
 ##### https://www.acmicpc.net/problem/1535 : 안녕
-- [ ] 현우
+- [x] 현우
 - [ ] 승용
 - [ ] 영규
 ##### https://www.acmicpc.net/problem/2231 : 분해합
-- [ ] 현우
+- [x] 현우
 - [ ] 승용
 - [ ] 영규
 
