@@ -24,7 +24,7 @@
 ##### https://www.acmicpc.net/problem/14889 : 스타트와 링크
 - [x] 현우
 - [x] 승용
-- [ ] 영규
+- [x] 영규
 ##### https://www.acmicpc.net/problem/1535 : 안녕
 - [x] 현우
 - [x] 승용
