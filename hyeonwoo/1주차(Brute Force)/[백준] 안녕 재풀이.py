@@ -20,6 +20,7 @@ for z in range (1, N+1):
     for i in test:
         life_temp = 0
         joy_temp = 0
+        print(f'test: {test}')
         for k in i:
             life_temp -= k[0]
             joy_temp += k[1]
