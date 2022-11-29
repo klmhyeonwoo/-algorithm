@@ -7,16 +7,10 @@
 
 import Foundation
 
-var n = 0
-var m = 0
-var nums = [Int]()
-
-let s = readLine()!.split(separator: " ").map { Int($0)! }
-n = s.first!
-m = s.last!
-
-// [1, 2, ..., n]
-for i in 1...n { nums.append(i) }
+let nm = readLine()!.split(separator: " ").map { Int($0)! }
+let n = nm.first!
+let m = nm.last!
+let nums = Array(1...n) // [1, 2, ..., n]
 
 /// nPr
 func permutation(n elements: [Int], r: Int) -> [[Int]] {
@@ -44,8 +38,6 @@ func permutation(n elements: [Int], r: Int) -> [[Int]] {
 
 let result = permutation(n: nums, r: m)
 result.forEach {
-    $0.forEach {
-        print($0, terminator: " ")
-    }
+    $0.forEach { print($0, terminator: " ") }
     print("")
 }
