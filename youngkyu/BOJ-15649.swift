@@ -4,7 +4,7 @@
 //
 //  Created by YoungK on 2022/11/27.
 //
-
+ 
 import Foundation
 
 let nm = readLine()!.split(separator: " ").map { Int($0)! }
