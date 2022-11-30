@@ -1,0 +1,24 @@
+function solution(A, B) {
+    let size = A.length;
+    let answer = 0;
+
+    A = A.split('');
+
+    for (let i = 1; i<=size; i++) {
+        let temp = A[A.length-i];
+        let test = A.slice(0, size).toString().replaceAll(',', '');
+        if (test === B) {
+            break
+        }
+        A.splice(0, 0, temp);
+        answer += 1
+    }
+
+    if (answer === size) {
+        return -1
+    } else {
+        return answer;
+    }
+}
+
+console.log(solution("hello", "elloh"))
