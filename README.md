@@ -34,3 +34,22 @@
 - [x] 승용
 - [ ] 영규
 
+##### 2주차 알고리즘 스터디 (11.28 ~ 12.05)
+
+##### https://www.acmicpc.net/problem/15649 : N과 M(1)
+- [x] 현우
+- [ ] 승용
+- [x] 영규
+##### https://www.acmicpc.net/problem/15650 : N과 M(2)
+- [x] 현우
+- [ ] 승용
+- [ ] 영규
+##### https://www.acmicpc.net/problem/15651 : N과 M(3)
+- [x] 현우
+- [ ] 승용
+- [ ] 영규
+
+##### https://www.acmicpc.net/problem/15652 : N과 M(4)
+- [x] 현우
+- [ ] 승용
+- [ ] 영규
