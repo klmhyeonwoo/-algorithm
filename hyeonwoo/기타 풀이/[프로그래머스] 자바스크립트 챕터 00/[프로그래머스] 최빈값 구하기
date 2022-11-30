@@ -1,0 +1,40 @@
+function solution(array) {
+    let top = 0;
+    count = 1;
+    let temp = {};
+    const array2 = new Set(array);
+
+    for (let k of array2) {
+        temp[k] = 0;
+    }
+
+
+    for (let i = 0; i<array.length; i++) {
+        temp[array[i]] += 1;
+    }
+
+    //console.log(temp)
+
+    let answer= Math.max(...Object.values(temp));
+
+    for (const [x, y] of Object.entries(temp)) {
+        if (answer === y) {
+            top = x;
+        }
+    }   
+
+    // 다빈값이 있는지를 확인하는 로직
+    for (const [x, y] of Object.entries(temp)) {
+        if (answer === y) {
+            if (count >= 2) {
+                return -1;
+            } else {
+                count += 1;
+            }
+        }
+    }
+
+    return parseInt(top);
+}
+
+console.log(solution([1, 2, 2, 5, 5, 5, 4]));

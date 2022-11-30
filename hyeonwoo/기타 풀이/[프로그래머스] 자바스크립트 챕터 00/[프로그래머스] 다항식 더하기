@@ -1,4 +1,44 @@
 function solution(polynomial) {
-    var answer = '';
-    return answer;
+    polynomial = polynomial.split(" + ");
+    numlst = []
+    xCount = 0;
+    xlst = []
+
+    for (let i of polynomial) {
+        if (i.includes(`x`)) {
+            xlst.push(i);
+        } else {
+            numlst.push(parseInt(i));
+        }
+    }
+
+    for (let k of xlst) {
+        console.log("k 테스트", k.slice(0, k.indexOf('x')));
+        if (k.slice(0, k.indexOf('x')) !== 'x') {
+            xCount += parseInt(k.split("x")[0])
+        } else {
+            xCount += 1;
+        }
+    }
+
+    sum = numlst.reduce((a,b) => a + b, 0 );
+
+    console.log(`xCount 테스트 : ${xCount}`)
+    console.log(`sum 테스트 : ${sum}`);
+
+    if (sum === 0) {
+        if (xCount >= 2) {
+            return `${xCount}x`;
+        } else if (xCount === 1) {
+            return `x`; 
+        } else {
+            return 0
+        }
+    } else if (sum >= 1) {
+        return `${xCount} + ${sum}`;
+    } else {
+        return polynomial;
+    }
 }
+
+console.log(solution("2x + x"));
