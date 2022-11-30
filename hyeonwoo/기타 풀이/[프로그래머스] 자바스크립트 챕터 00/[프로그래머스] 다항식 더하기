@@ -1,0 +1,4 @@
+function solution(polynomial) {
+    var answer = '';
+    return answer;
+}
