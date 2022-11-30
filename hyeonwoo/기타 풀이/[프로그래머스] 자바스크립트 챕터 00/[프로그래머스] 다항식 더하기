@@ -1,44 +1,80 @@
 function solution(polynomial) {
     polynomial = polynomial.split(" + ");
-    numlst = []
-    xCount = 0;
-    xlst = []
+    let lst1 = [];
+    let lst2 = [];
 
-    for (let i of polynomial) {
-        if (i.includes(`x`)) {
-            xlst.push(i);
+    for (let k of polynomial) {
+        // 앞이 0일 경우에 지워지는 로직
+        if (k.length > 1) {
+            while(1) {
+                if (k.includes('0') && k.indexOf('0') === 0) {
+                    k = k.replace('0', '');
+                    console.log(k)
+                }
+                else {
+                    break
+                }
+            }
+        }
+
+        if (k.includes('x')) {  
+            lst1.push(k);
         } else {
-            numlst.push(parseInt(i));
+            lst2.push(k);
+        }
+    }
+    
+    console.log("lst1 : ", lst1);
+    console.log("lst2 : ", lst2);
+
+    // '+ 12'에서 반례 발생 -> 이건 문제에서 안된다고 했음
+
+    // x의 값을 더해줄 변수를 지정합니다.
+    let answer = 0;
+    // x 값들을 담은 변수에서 덧셈을 진행합니다.
+    if (lst1.length >= 1) {
+        for (const x of lst1) {
+            if (x.slice(0, x.indexOf('x')).length !== 0 ) {
+                //console.log(x.slice(0, x.indexOf('x')));
+                answer += parseInt(x.slice(0, x.indexOf('x')));
+            } else {
+                answer += 1
+            }
         }
     }
 
-    for (let k of xlst) {
-        console.log("k 테스트", k.slice(0, k.indexOf('x')));
-        if (k.slice(0, k.indexOf('x')) !== 'x') {
-            xCount += parseInt(k.split("x")[0])
-        } else {
-            xCount += 1;
+    // 상수항의 값을 더해줄 변수를 지정합니다.
+    let answer2 = 0;
+    if (lst2.length >= 1) {
+        for (const y of lst2) {
+            answer2 += parseInt(y);
         }
     }
 
-    sum = numlst.reduce((a,b) => a + b, 0 );
+    // 상수항이 없는 경우
+    // x만 존재하는 경우
 
-    console.log(`xCount 테스트 : ${xCount}`)
-    console.log(`sum 테스트 : ${sum}`);
-
-    if (sum === 0) {
-        if (xCount >= 2) {
-            return `${xCount}x`;
-        } else if (xCount === 1) {
+    if (lst1.length >= 1 && lst2.length >= 1) {
+        if (answer === 1) {
+        return `x + ${answer2}`; 
+        } else {
+            return `${answer}x + ${answer2}`; 
+        }
+    } else if (lst1.length >= 1 && lst2.length === 0) {
+        if (answer === 1) {
             return `x`; 
         } else {
-            return 0
+            return `${answer}x`; 
         }
-    } else if (sum >= 1) {
-        return `${xCount} + ${sum}`;
+    } else if (lst1.length === 0 && lst2.length >= 1) {
+        return answer2.toString();
     } else {
-        return polynomial;
+        return 0;
     }
+
+
+    //console.log(lst1);
+    //console.log(lst2);
 }
 
-console.log(solution("2x + x"));
+console.log(solution("12"));
