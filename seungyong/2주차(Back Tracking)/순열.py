@@ -1,21 +1,19 @@
-def permutation(level):
+def permutation(size):
     global M
-    if len(lst) == M: # 중단조건 M개 고르면 끝
+    if size == M:
         for k in lst:
             print(k,end=' ')
         print()
-        return
-
-    for i in range(level, N + 1):
+    for i in range(1, N+1):
         if visited[i] == False:
             visited[i] = True
             lst.append(i)
-            permutation(i + 1)
+            permutation(size + 1)
             visited[i] =False
             lst.pop()
- 
+    
 N, M = map(int, input().split())
 lst = []
-visited = [False for _ in range(0,N+1)] # 0 ~ N
+visited = [False for _ in range(0,N+1)]
 
-permutation(1)
+permutation(0)
