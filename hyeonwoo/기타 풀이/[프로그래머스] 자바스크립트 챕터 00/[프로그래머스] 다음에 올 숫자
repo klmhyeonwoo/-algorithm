@@ -1,0 +1,8 @@
+function solution(common) {
+    let minus = common[common.length-1] - common[common.length-2]
+    if (common[1] - common[0] === minus) {
+        return common[common.length-1] + minus
+    } else {
+        return common[common.length-1] * (common[1] / common[0])
+    }
+}

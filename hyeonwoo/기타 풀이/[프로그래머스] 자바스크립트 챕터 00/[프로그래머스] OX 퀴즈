@@ -1,0 +1,27 @@
+function solution(quiz) {
+    var array = [];
+
+    quiz.map((item) => {
+        let arrayOfTest = item.split(' ');
+        let firstOfNum = parseInt(arrayOfTest[0]);
+        let twiceofNum = parseInt(arrayOfTest[2]);
+        let operate = arrayOfTest[1];
+        let result = parseInt(arrayOfTest[4])
+        let answer = 0;
+
+        if (operate === '+') {
+            answer = firstOfNum + twiceofNum;
+        } else {
+            answer = firstOfNum - twiceofNum
+        }
+
+        if (result === answer) {
+            array.push("O")
+        } else {
+            array.push("X")
+        }
+
+    })
+
+    return array;
+}

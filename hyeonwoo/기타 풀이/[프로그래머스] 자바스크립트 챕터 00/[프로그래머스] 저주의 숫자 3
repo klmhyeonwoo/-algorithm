@@ -1,0 +1,13 @@
+function solution(n) {
+    answer = 1;
+    for(let i=2; i<=n; i++) {
+        if (String(answer).includes(3) || answer % 3 === 0) {
+            answer += 2
+        } else {
+            answer += 1
+        }
+        console.log(i, answer);
+    }
+}
+
+console.log(solution(15));
