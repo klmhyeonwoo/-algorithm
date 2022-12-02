@@ -1,0 +1,19 @@
+function solution(my_string) {
+    my_string = Array.from(my_string);
+    result = "";
+    for (let i = 0; i<my_string.length; i++) 
+    {
+        if (my_string[i] === my_string[i].toUpperCase()) {
+            my_string[i] = my_string[i].toLowerCase();
+        }
+    }
+
+    my_string.sort();
+
+    for (let i of my_string) {
+        result += i;
+    }
+    return result
+    }
+
+console.log(solution("Bcad"));

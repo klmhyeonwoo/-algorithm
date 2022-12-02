@@ -1,0 +1,19 @@
+function solution(array) {
+
+    let answer = 0;
+
+    array.map((item) => {
+        item = String(item);
+        if (item.includes("7")) {
+            for (let i=0; i<item.length; i++) {
+                if (item[i] === "7") {
+                    answer += 1;
+                }
+            }
+        }
+    });
+
+    return answer;
+}
+
+console.log(solution([7, 77, 17]));
