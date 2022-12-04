@@ -1,20 +1,32 @@
 def permutation(size):
     global M
+    # 이게 중단 조건
     if size == M:
         for k in lst:
             print(k,end=' ')
         print()
+        return
+
+    print("실행 size : ", size, "lst :", lst)
+    
     for i in range(1, N+1):
         if visited[i] == False:
             visited[i] = True
             lst.append(i)
             permutation(size + 1)
+            # print("visited : ", visited)
+            print("현재 i의 값 :", i)
+            print("이전 : ", visited)
             visited[i] =False
-            lst.pop()
+            print("현재 visited : ", visited)
+            print("현재 lst : ", lst)
+            print("삭제된 값 : ", lst.pop())
+            # print("bottom", i)
+
+
     
 N, M = map(int, input().split())
 lst = []
 visited = [False for _ in range(0,N+1)]
-print(visited)
 
 permutation(0)
