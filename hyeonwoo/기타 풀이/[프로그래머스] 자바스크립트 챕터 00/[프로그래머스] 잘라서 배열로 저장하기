@@ -1,0 +1,14 @@
+function solution(my_str, n) {
+    let lst = [];
+
+    while (my_str.length !== 0) {
+        lst.push(my_str.slice(0,6));
+        my_str = my_str.slice(6,);
+    }
+
+
+
+    return lst
+}
+
+console.log(solution("abc1Addfggg4556b"));
