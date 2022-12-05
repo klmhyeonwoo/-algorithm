@@ -1,0 +1,36 @@
+function solution(a, b) {
+    let DIV = 0;
+    for (let i = 0; i <= a; i++) {
+        if (a % i === 0 && b % i === 0) {
+            DIV = i;
+        }
+    }
+
+    a = Math.round(a / DIV);
+    b = Math.round(b / DIV);
+
+    console.log(a, b);
+    // 2로 나눠지거나, 5로 나눠지는데 
+    // 그 안에서 3으로 나눠지면 안된다.
+
+    if (b === 1) {
+        return 1;
+    } else {
+        for (let i=2; i<b; i++) {
+            if (i % 2 == 0 || i % 5 == 0) {
+                if (b % 2 === 0 || b % 5 === 0) {
+                    if (b % 3 === 0) {
+                        return 2
+                    }
+                    continue
+                } else {
+                    return 2
+                }
+            }
+        }
+    }
+
+    return 1;
+}
+
+console.log(solution(1, 30));

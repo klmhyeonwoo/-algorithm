@@ -1,0 +1,33 @@
+function solution(dots) {
+    dots.sort((a, b) => {
+        if (a > b) return 1;
+        if (a < b) return -1;
+    })
+
+    let XLENGTH = 0;
+    let YLENGTH = 0;
+    let result = 0;
+
+    console.log(dots);
+
+    
+    if (dots[0][0] === dots[1][0]) {
+        for (let i=dots[0][1]; i<dots[1][1]; i++) {
+            XLENGTH += 1;
+        }
+    }
+
+    if (dots[0][1] === dots[2][1]) {
+        for (let i=dots[0][0]; i<dots[2][0]; i++) {
+            YLENGTH += 1;
+        }
+    }
+
+    console.log(XLENGTH, YLENGTH);
+
+    result = XLENGTH * YLENGTH;
+
+    return result;
+}
+
+console.log(solution([[-1, 0], [3, 8], [-1, 8], [3, 0]]));
