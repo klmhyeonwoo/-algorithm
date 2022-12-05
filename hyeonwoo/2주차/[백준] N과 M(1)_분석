@@ -14,7 +14,7 @@ def permutation(size):
             visited[i] = True
             lst.append(i)
             permutation(size + 1)
-            # print("visited : ", visited)
+            print("visited : ", visited)
             print("현재 i의 값 :", i)
             print("이전 : ", visited)
             visited[i] =False

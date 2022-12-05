@@ -1,0 +1,28 @@
+function solution(numbers) {
+    let answer = '';
+    for (let i = 0; i<numbers.length; i++) {
+        numbers[i] = String(numbers[i]);
+    }
+
+    // console.log(numbers);
+
+    numbers.sort((a, b) => {
+        // console.log (a+b, b+a)
+        if (a+b < b+a) return 1; // 앞의 B의 값이 크면, 오름차순
+        if (a+b > b+a) return -1; // 뒤에 A의 값이 크면, 내림차순
+        if (a+b === b+a) return 0; // 값이 같으면, 
+    })
+
+    numbers.map((item) => {
+        answer += item;
+    })
+
+    for (let i of answer) {
+        if (i !== `0`) {
+            return answer;
+        }
+    }
+    return `0`;
+}
+
+console.log(solution([0,7,0,0]));

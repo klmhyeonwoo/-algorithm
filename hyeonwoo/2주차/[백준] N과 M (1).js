@@ -15,7 +15,6 @@ const permutation = (size, M) => {
             lst.pop();
         }
     }
-
 }
 
 const N = 4;
@@ -23,7 +22,7 @@ const M = 2;
 let visited = [];
 let lst = [];
 
-for (let i=0; i<N; i++) {
+for (let i=0; i<=N; i++) {
     visited.push(false);
 }
 
