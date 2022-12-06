@@ -1,13 +1,69 @@
 function solution(n) {
-    answer = 1;
-    for(let i=2; i<=n; i++) {
-        if (String(answer).includes(3) || answer % 3 === 0) {
-            answer += 2
-        } else {
-            answer += 1
+    // 해당 인덱스에서 3이 포함되면 해당 인덱스 자리를 1을 올리고,
+    // 3으로 나눠떨어지면 계속 1을 올려준다.
+
+    // for (let i = 0; i < 15; i++) 
+    // {
+    //     answer += 1;
+    //     while (1) {
+
+    //     }
+    // }
+
+    let result = 0;
+
+    for (let i=1; i<=n; i++) {
+        result += 1
+        let answer = String(result);
+
+        while (answer.includes(3)) {
+            let location = answer.indexOf(3);
+            let scaledNum = parseInt(answer[location]) + 1
+            answer = answer.replace('3', scaledNum);
         }
-        console.log(i, answer);
+
+        while (answer % 3 === 0) {
+            answer = parseInt(answer) + 1;
+            answer = String(answer);
+            while (answer.includes(3)) {
+                let location = answer.indexOf(3);
+                let scaledNum = parseInt(answer[location]) + 1
+                answer = answer.replace('3', scaledNum);
+            }
+        }
+
+        console.log(answer);
+        result = parseInt(answer);
     }
+
+    return result
 }
 
 console.log(solution(15));
+
+/* 1 2 3 4 5 6  7  8  9 10 */
+/* 1 2 4 5 7 8 10 11 14 11 */
+/* 31 */
+
+// 1 1
+// 2 2
+// 4 3
+// 5 4
+// 7 5
+// 8 6
+// 10 7
+// 11 8 
+// 13 9
+// 14 10
+// 16 11
+// 17
+// 19
+// 20
+// 22
+// 25
+// 26
+// 28
+// 29
+// 40
+// 41
+// 41
