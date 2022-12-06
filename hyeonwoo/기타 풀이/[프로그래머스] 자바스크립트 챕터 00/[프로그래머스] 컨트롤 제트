@@ -1,0 +1,18 @@
+function solution(s) {
+    let result = 0;
+    s = s.split(" ");
+    for (let i = 0; i < s.length; i++) {
+        if (s[i] !== `Z`) {
+            result += parseInt(s[i])
+        } else {
+            if (s[i-1] > 0) {
+                result -= parseInt(s[i-1])
+            } else {
+                result += Math.abs(parseInt(s[i-1]))
+            }
+        }
+    }
+    
+    console.log(`출력 : ${result}`)
+    return result;
+}

@@ -1,0 +1,29 @@
+function solution(sides) {
+//     가장 긴 변인 경우
+    sides.sort((a, b) => {
+        if (a > b) return -1;
+        if (a < b) return 1;
+    })
+    
+    let 가장_긴_변 = sides.reduce((a, b) => Math.abs(b - a), 0);
+    let 가장_긴_변_리스트 = [];
+    for (let i = 가장_긴_변 + 1; i <= sides[0]; i++) {
+        가장_긴_변_리스트.push(i);
+    }
+    let 나머지_한_변 = sides.reduce((a, b) => a + b, 0);
+    let 나머지_한_변_리스트 = [];
+    for (let k = sides[0]+1; k < 나머지_한_변; k++) {
+        나머지_한_변_리스트.push(k);
+    }
+    
+    
+    console.log(가장_긴_변_리스트)
+    console.log(나머지_한_변_리스트)
+//     나머지 한 변이 가장 긴 변 인 경우
+    return 가장_긴_변_리스트.length + 나머지_한_변_리스트.length
+}
+
+
+// 11, 7의 경우
+// => 가장 긴 변이 11인 경우, 11-7 => 4니까, 5,6,7,8,9,10,11
+// => 나머지 한 변이 가장 긴 변인 경우, 11+7 => 18니까, 11,12,13,14,15,16,17
