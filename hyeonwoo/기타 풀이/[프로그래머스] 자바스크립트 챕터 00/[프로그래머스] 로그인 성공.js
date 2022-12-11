@@ -4,7 +4,7 @@ function solution(id_pw, db) {
 
     db.map((item) => {
 
-        console.log(item ,id_pw)
+        console.log(item, id_pw)
         if (item[0] === id_pw[0]) {
             ID_CHECK = true;
         }
@@ -23,4 +23,4 @@ function solution(id_pw, db) {
     }
 }
 
-console.log(solution(["meosseugi", "1234"],[["rardss", "123"], ["yyoom", "1234"], ["meosseugi", "1234"]]));
+console.log(solution(["meosseugi", "1234"], [["rardss", "123"], ["yyoom", "1234"], ["meosseugi", "1234"]]));
