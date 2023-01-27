@@ -7,7 +7,11 @@ cnt = 0
 queue = deque([(N, cnt)])
 visited[N] = True
 while(queue): 
-  x, cnt = queue.popleft()
+  x, cnt = queue.popleft() # 4 6 10  [[4, 1],[6 , 1],[10, 1] -> 
+  # 5, 0
+  # -> [4,1]
+  # -> [ [5,2], [3,2], [8,2]]
+  # ->
   if x == M:
     break
   if x + 1 < 100001:
