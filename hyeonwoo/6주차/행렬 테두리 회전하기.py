@@ -24,6 +24,8 @@ def solution(rows, columns, queries):
             array[k][y1-1] = lotation
             mini = min(mini, lotation)
 
+            print(array)
+
         # 하단 가로
         for k in range(y1-1, y2-1):
             lotation = array[x2-1][k+1]
@@ -49,8 +51,9 @@ def solution(rows, columns, queries):
 
     return answer
 
+
 # 테스트 코드
-# print(solution(6, 6, [[2, 2, 5, 4]]))
+print(solution(6, 6, [[2, 2, 5, 4]]))
 
 # (2, 2) -> (5, 4)
 # (2, 3, 4 x축으로 ) - (2, 3, 4, 5) -> (4, 3, 2) -> (5, 4, 3, 2)
