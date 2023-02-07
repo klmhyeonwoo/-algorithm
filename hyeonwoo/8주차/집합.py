@@ -19,7 +19,7 @@ for i in range(M):
                 newLst[a].extend(tempB)
                 newLst[b].extend(tempA)
                 break
-        print(newLst)
+        # print(newLst)
 
     if (command == 1):  # command가 1일 때의 로직
         for lst in newLst:

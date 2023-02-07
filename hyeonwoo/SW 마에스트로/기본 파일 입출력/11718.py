@@ -6,3 +6,15 @@ while (1):
         break
     else:
         print(word)
+
+
+# OR
+
+import sys
+
+while (1):
+    try:
+        word = input()
+        print(word)
+    except EOFError:
+        break
