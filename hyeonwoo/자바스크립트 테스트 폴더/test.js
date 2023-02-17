@@ -1,13 +1,10 @@
-function order(food) {
-    console.log(`${food}을(를) 주문하셨습니다.`);
+const obj = { name: "hyeon woo" };
 
-    return function (drink) {
-        console.log(`${drink}을(를) 추가로 주문하셨습니다.`);
-    }
-}
+function say(job, skill) {
+    console.log(`Hello, my name is ${this.name}, my job is ${job}, my tech skill is ${skill}`);
+};
 
-
-const orderBurger = order("햄버거");
-const orderPizza = order("피자");
-orderBurger("콜라");
-orderPizza("사이다");
+say.call(obj, "front-end developer", "react");
+say.apply(obj, ["back-end developer", "springBoot"]);
+const bound = say.bind(obj, "designer", "figma");
+bound();
