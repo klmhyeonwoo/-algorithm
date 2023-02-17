@@ -12,12 +12,12 @@ for i in range(N):
         stack.append(command[1])
     elif (command[0] == "pop_front"):
         if (stack):
-            stack.pop(0)
+            print(stack.pop(0))
         else:
             print(-1)
     elif (command[0] == "pop_back"):
         if (stack):
-            stack.pop()
+            print(stack.pop())
         else:
             print(-1)
     elif (command[0] == "size"):

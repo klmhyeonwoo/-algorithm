@@ -1,0 +1,36 @@
+function solution(a) {
+    let n = "a";
+    let answer = false;
+    let cnt = a.length;
+    let result = [];
+
+    for (let i=0; i<a.length; i++) {
+        result.push(false);
+    }
+
+    for (let j=0; j<a.length; j++) {
+        let sum_a = 0;
+        for (let v = 0; v < n.length; v++) {
+            if (n[v] === "a") {
+                sum_a += 1;
+            }
+            // console.log(n[v])
+            // console.log(sum_a);
+        }
+        n = "b".repeat(sum_a) + n + "b".repeat(sum_a);
+        // console.log(n);
+        // console.log(sum_a);
+        for (let k=0; k<n.length; k++) {
+            if (a[k] === "a" + n || n + "a" === a[k] || a[k] === "aa" + n || a[k] === n + "aa") {
+                answer = false;
+                result[k] = true;
+            }
+        }
+
+        n = "a" + n + "a";
+
+    }
+
+    return result;
+
+}
