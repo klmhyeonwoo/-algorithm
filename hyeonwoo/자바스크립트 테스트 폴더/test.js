@@ -1,10 +1,7 @@
-const obj = { name: "hyeon woo" };
+let a = { name: "hyeonwoo" }
+let b = Object.assign({}, a);
 
-function say(job, skill) {
-    console.log(`Hello, my name is ${this.name}, my job is ${job}, my tech skill is ${skill}`);
-};
+b.name = "minwoo";
 
-say.call(obj, "front-end developer", "react");
-say.apply(obj, ["back-end developer", "springBoot"]);
-const bound = say.bind(obj, "designer", "figma");
-bound();
+console.log(a);
+console.log(b);
