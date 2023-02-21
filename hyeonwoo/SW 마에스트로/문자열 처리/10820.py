@@ -18,7 +18,6 @@ while True:
         elif (i == " "):
             emptyCount += 1
         elif ("0" <= i) and ("9" >= i):
-            print(i)
             numCount += 1
 
     print(lowerCount, upperCount, numCount, emptyCount)
