@@ -20,7 +20,7 @@ for i in range(m - 1, -1, -1):
 
 # B진법 로직으로 짜야한다.
 while answer != 0:
-    result += str(answer % B)
+    result = str(answer % B) + result
     answer //= B
 
-print(" ".join(map(str, result[::-1])))
+print(" ".join(map(str, result)))
