@@ -3,15 +3,16 @@ import sys
 # 세로가 3 이상과 미만일 때 경우가 달라진다.
 
 R, C = map(int, sys.stdin.readline().split())  # R은 행(가로), C는 열(새로)
+
 lst = []
 
-for i in range(C):
+for i in range(R):
     lst.append(list(map(int, sys.stdin.readline().split())))
 
 if (R % 2 == 1):  # R이 홀수 일 경우, ㄹ자를 그리며 모두 방문할 수 있다.
     print(("R" * (C-1) + "D" + "L" * (C-1) + "D") * (R // 2) + "R" * (C-1))
 elif (C % 2 == 1):  # L이 홀수 일 경우, 뒤집힌 ㄹ자를 그리며 모두 방문할 수 있다.
-    print(("D" * (R-1) + "R" + "U" * (R-1) + "R" * (C // 2)) + "D" * (R-1))
+    print(("D" * (R-1) + "R" + "U" * (R-1) + "R") * (C // 2) + "D" * (R-1))
 elif (R % 2 == 0 and C % 2 == 0):  # R과 L이 모두 짝수일 경우 모든 칸을 방문할 수 없다.
     low = 1000  # 최대 기쁨은 1000으로 문제에서 제한되었다.
     position = [-1, -1]
