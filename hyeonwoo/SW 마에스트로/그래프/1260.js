@@ -1,54 +1,81 @@
 const fs = require('fs');
 const [n, m, v, ...arr] = fs.readFileSync("nodeJS.txt").toString().trim().split(/\s/);
 
-const ChangeNumList = (list) => list.map(Number);
-const sort = (list) => {
+const bfsOfList = [];
+const dfsOfList = [];
+
+const N = parseInt(n);
+const M = parseInt(m);
+const V = parseInt(v);
+
+const DFS = (node, v, visited) => {
+    visited[v] = true;
+    dfsOfList.push(v);
+    for (let i of node[v]) {
+        if (visited[i] === false) {
+            DFS(node, i, visited);
+        }
+    }
+}
+
+const BFS = (node, v, visited) => {
+    const queue = [v];
+    visited[v] = true;
+    while (queue.length > 0) {
+        let num = queue.shift();
+        bfsOfList.push(num);
+        for (let i of node[num]) {
+            if (visited[i] === false) {
+                queue.push(i);
+                visited[i] = true;
+            }
+        }
+    }
+}
+
+const ChangeNumList = (arr) => arr.map(Number);
+const Sort = (list) => {
     list.sort((a, b) => {
         if (a > b) {
             return 1;
-        } else if (a < b) {
-            return -1
-        } else if (a === b) {
+        }
+        if (a < b) {
+            return -1;
+        }
+        if (a === b) {
             return 0;
         }
     })
-
     return list;
 }
 
-// 문자열로 들어온 리스트 및 변수를 먼저 숫자로 바꿔줍니다.
-let N = parseInt(n);
-let M = parseInt(m);
-let V = parseInt(v);
-let lst = ChangeNumList(arr);
-let visited = []
-let node = []
+const lst = ChangeNumList(arr);
+const node = [];
+const visited = [];
 
-// 방문 기록을 위해 N+1 만큼의 false 칸을 만들어줍니다.
-for (let k=0; k<=N; k++) {
+for (let i=0; i<=N; i++) {
+    node.push([]);
     visited.push(false);
 }
 
-// 각 칸 마다 담을 배열을 만들어줍니다.
-for (let i=0; i<=M; i++) {
-    node.push([]);
-}
-
-// 만들어준 node라는 변수에 숫자를 넣어줍니다.
-for (let z=0; z<lst.length; z+= 2) {
-    let a = lst[z];
-    let b = lst[z+1];
+for (let k=0; k<lst.length; k+=2) {
+    let a = lst[k];
+    let b = lst[k + 1];
 
     node[a].push(b);
     node[b].push(a);
 }
 
-for (let y=0; y<=N; y++) {
-    sort(node[y]);
+for (let z=0; z<M; z++) {
+    Sort(node[z]);
 }
 
-console.log(node)
+DFS(node, V, visited);
+console.log(dfsOfList.join(" "))
 
-// console.log(N, M, V, arr);
+for (let y=0; y<visited.length; y++) {
+    visited[y] = false;
+}
 
-
+BFS(node, V, visited);
+console.log(bfsOfList.join(" "));
