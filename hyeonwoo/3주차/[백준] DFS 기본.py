@@ -62,7 +62,7 @@ for i in range(M):
     a, b = map(int, sys.stdin.readline().rstrip().split())
     node[a].append(b)
     node[b].append(a)
-# print(node)
+print(node)
 
 for k in range(N+1):
     node[k].sort()
