@@ -66,7 +66,7 @@ for (let k=0; k<lst.length; k+=2) {
     node[b].push(a);
 }
 
-for (let z=0; z<M; z++) {
+for (let z=0; z<=N; z++) {
     Sort(node[z]);
 }
 
