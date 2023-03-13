@@ -66,6 +66,7 @@ for (let k=0; k<lst.length; k+=2) {
     node[b].push(a);
 }
 
+// 타입 에러 확인, N인데 M만큼 해줘버렸음..
 for (let z=0; z<=N; z++) {
     Sort(node[z]);
 }
