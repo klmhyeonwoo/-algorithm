@@ -1,7 +1,6 @@
 const fs = require('fs');
 const [t, ...arr] = fs.readFileSync("nodeJS.txt").toString().trim().split(/\s/);
 
-let count = 0;
 
 const DFS = (nodes, v, visited) => {
     visited[v] = true;
@@ -28,6 +27,9 @@ const Sort = (list) => {
 }
 
 for (let i=0; i<t; i++) {
+
+    let count = 0;
+
     const N = parseInt(arr.shift());
     const permutation = arr.splice(0, N).map(Number);
     const visited = [];
@@ -39,14 +41,14 @@ for (let i=0; i<t; i++) {
     }
 
 
-    for (let z=1; z<permutation.length; z+=2) {
-        const a = permutation[z];
+    for (let z=1; z<=permutation.length; z++) {
+        const a = permutation[z-1];
 
         nodes[z].push(a);
-        nodes[a].push(z);
+        // nodes[a].push(z);
     }
 
-    console.log(nodes)
+    // console.log(nodes)
 
     for (let e=0; e<=N; e++) {
         Sort(nodes[e]);
@@ -54,10 +56,11 @@ for (let i=0; i<t; i++) {
 
     for (let c=1; c<visited.length; c++) {
         if (visited[c] === false) {
+            // console.log(visited);
             DFS(nodes, c, visited);
             count += 1;
         }
     }
-
+    
     console.log(count);
 }
