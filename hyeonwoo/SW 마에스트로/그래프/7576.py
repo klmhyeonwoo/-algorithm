@@ -11,6 +11,7 @@ for i in range(n):
         if matrix[i][j] == 1:
             queue.append([i, j])
 
+
 def bfs():
     while queue:
         x, y = queue.popleft()
@@ -19,6 +20,7 @@ def bfs():
             if 0 <= nx < n and 0 <= ny < m and matrix[nx][ny] == 0:
                 matrix[nx][ny] = matrix[x][y] + 1
                 queue.append([nx, ny])
+
 
 bfs()
 for i in matrix:
